@@ -62,7 +62,7 @@ const Minimize = ({ onClick }) => (
 const Feed = ({ isVisible }) => {
   return (
     <div
-      className={`wf-flex wf-flex-col wf-h-full wf-justify-between wf-overflow-hidden wf-transition-all wf-duration-250 ${isVisible ? "wf-h-[80vh]" : "wf-h-0"}`}>
+      className={`wf-flex wf-flex-col wf-justify-between wf-overflow-hidden wf-transition-all wf-duration-250 ${isVisible ? "wf-h-[80vh]" : "wf-h-[0px]"}`}>
       <div className="wf-flex wf-flex-col wf-gap-2">
         <Message />
         <Message />
@@ -73,24 +73,21 @@ const Feed = ({ isVisible }) => {
   )
 }
 
-const Input = () => (
-  <div className="wf-flex wf-items-center wf-justify-between wf-w-full  wf-border wf-slate-300 wf-rounded-xl wf-p-2 wf-gap-2">
-    <textarea
-      className="wf-w-full wf-bg-transparent wf-border-0 wf-text-sm wf-text-slate-900 wf-outline-none wf-resize-none"
-      placeholder="Type a message and press Enter"
-      rows={1}
-      onInput={(e) => {
-        e.target.style.height = "auto"
-        e.target.style.height = `${e.target.scrollHeight}px`
-      }}
-    />
-    {/* <div className="wf-h-full wf-flex wf-items-end ">
-      <button className="wf-text-sm  wf-text-slate-900 wf-p-2 wf-rounded-lg self-items-end">
-        Send
-      </button>
-    </div> */}
-  </div>
-)
+const Input = () => {
+  const [message, setMessage] = useState("")
+  return (
+    <div
+      className={`wf-flex wf-items-center wf-justify-between wf-w-full  wf-border wf-slate-300 wf-transition-all wf-duration-300 wf-rounded-xl wf-p-2 wf-gap-2 ${message.length > 0 ? "wf-border-blue-400" : ""}`}>
+      <textarea
+        value={message}
+        rows={1}
+        onChange={(e) => setMessage(e.target.value)}
+        className="wf-w-full wf-bg-transparent wf-border-0 wf-text-sm wf-text-slate-900 wf-outline-none wf-resize-none"
+        placeholder="Type a message and press Enter"
+      />
+    </div>
+  )
+}
 
 const Message = () => (
   <div className="wf-p-2 wf-bg-slate-200 wf-rounded-lg wf-w-full wf-flex wf-flex-col wf-gap-1 ">
