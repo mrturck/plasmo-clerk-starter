@@ -19,3 +19,12 @@
     transform: translateX(-5px);
   }
 }
+
+@keyframes float-up {
+  from {
+    transform: translateY(600px);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
