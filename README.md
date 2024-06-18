@@ -8,13 +8,12 @@ This repo shows how to use Clerk auth with Plasmo framework for both the popup a
 2. Install dependencies and run the dev script (plasmo has hot reloading), this will generate a build/ folder
 
 # Load the chrome extension
-
-3. Install the chrome extension: Go to chrome://extensions, click load unpacked, upload the build/chrome-mv3-dev folder
+Install the chrome extension: Go to chrome://extensions, click load unpacked, upload the build/chrome-mv3-dev folder
 
 # Add chrome extension as authorized domain so syncSessionWithTab works
 
-4. Copy the chrome extension id
-5. Per the docs at https://clerk.com/docs/pr/1004/references/chrome-extension/syncsessionwithtab-configuration, run the curl command to add the chrome extension as an authorized domain
+1. Copy the chrome extension id from the chrome extensions page
+2. Per the docs at https://clerk.com/docs/pr/1004/references/chrome-extension/syncsessionwithtab-configuration, run the curl command to add the chrome extension as an authorized domain
 
 ```
 curl  -X PATCH https://api.clerk.com/v1/instance \
@@ -22,8 +21,6 @@ curl  -X PATCH https://api.clerk.com/v1/instance \
       -H "Content-type: application/json" \
       -d '{"allowed_origins": ["chrome-extension://<CHROME_EXTENSION_KEY>"]}'
 ```
-
-6.
 
 # Run the web server
 
