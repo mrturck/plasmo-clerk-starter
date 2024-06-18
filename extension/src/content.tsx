@@ -1,15 +1,12 @@
-import {
-  ClerkProvider,
-} from "@clerk/chrome-extension"
+import { ClerkProvider } from "@clerk/chrome-extension"
 import cssText from "data-text:~style.css"
 import type { PlasmoCSConfig } from "plasmo"
+import React from "react"
+
 import App from "~components/App"
-import React from 'react'
 
 export const config: PlasmoCSConfig = {
-  matches: [
-    "http://localhost/*"
-  ]
+  matches: ["http://localhost/*"]
 }
 
 export const getStyle = () => {
